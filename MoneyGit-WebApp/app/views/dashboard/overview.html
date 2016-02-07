@@ -1,0 +1,257 @@
+
+<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <style>
+.progress {
+  width: 100%;
+  height: 40px;
+}
+
+.progress-wrap {
+  background: #b5d000;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+.progress-wrap .progress-bar {
+  background: #ddd;
+  left: 0;
+  height:100px;
+  position: absolute;
+  top: -10px;
+}
+
+.progress2 {
+  width: 100%;
+  height: 40px;
+}
+
+.progress-wrap2 {
+  background: #b5d000;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+.progress-wrap2 .progress-bar2 {
+  background: #ddd;
+  left: 0;
+  height:100px;
+  position: absolute;
+  top: 0;
+}
+      
+.progress3 {
+  width: 100%;
+  height: 40px;
+}
+
+.progress-wrap3 {
+  background: #e31a10;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+.progress-wrap3 .progress-bar3 {
+  background: #ddd;
+  left: 0;
+  height:100px;
+  position: absolute;
+  top: 0;
+}
+
+.progress4 {
+  width: 100%;
+  height: 40px;
+}
+
+.progress-wrap4 {
+  background: #e31a10;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+.progress-wrap4 .progress-bar4 {
+  background: #ffb30f;
+  left: 0;
+  height:100px;
+  position: absolute;
+  top: 0;
+}
+
+.orange-circle-button {
+	box-shadow: 2px 4px 0 2px rgba(0,0,0,0.1);
+	border: .5em solid #849324;
+	font-size: 1em;
+	line-height: 1.1em;
+	color: black;
+	background: #b5d000;
+	margin: auto;
+	border-radius: 50%;
+	height: 15em;
+	width: 15em;
+	position: relative;
+}
+.orange-circle-button:hover {
+	color:white;
+    background-color: #a5d0ff;
+	text-decoration: none;
+	border-color: #4e8fd8;
+	
+}
+.orange-circle-button:visited {
+	color:#ffffff;
+    background-color: #e84d0e;
+	text-decoration: none;
+	
+}
+.orange-circle-link-greater-than {
+    font-size: 7em;
+}
+</style>
+
+<script>
+// on page load...
+    moveProgressBar();
+    // on browser resize...
+    $(window).resize(function() {
+        moveProgressBar();
+    });
+
+    // SIGNATURE PROGRESS
+    function moveProgressBar() {
+      console.log("moveProgressBar");
+        var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+        var getProgressWrapWidth = $('.progress-wrap').width();
+        var progressTotal = getPercent * getProgressWrapWidth;
+        var animationLength = 4000;
+        
+        var getPercent2 = ($('.progress-wrap2').data('progress-percent2') / 100);
+        var getProgressWrapWidth2 = $('.progress-wrap2').width();
+        var progressTotal2 = getPercent2 * getProgressWrapWidth2;
+        
+        var getPercent3 = ($('.progress-wrap3').data('progress-percent3') / 100);
+        var getProgressWrapWidth3 = $('.progress-wrap3').width();
+        var progressTotal3 = getPercent3 * getProgressWrapWidth3;
+        
+        var getPercent4 = ($('.progress-wrap4').data('progress-percent4') / 100);
+        var getProgressWrapWidth4 = $('.progress-wrap4').width();
+        var progressTotal4 = getPercent4 * getProgressWrapWidth4;
+        
+        // on page load, animate percentage bar to data percentage length
+        // .stop() used to prevent animation queueing
+        $('.progress-bar').stop().animate({
+            left: progressTotal
+        }, animationLength);
+        $('.progress-bar2').stop().animate({
+            left: progressTotal2
+        }, animationLength);
+        $('.progress-bar3').stop().animate({
+            left: progressTotal3
+        }, animationLength);
+        $('.progress-bar4').stop().animate({
+            left: progressTotal4
+        }, animationLength);
+    }
+</script>
+
+<div>
+	<snap-drawer>
+		<div class="snap-menu">
+			<div class="sidebar-header text-center">
+				<img src="images/tonnycircle.png" alt="" class="sidebar-img img-circle">
+                <p>Tonny Lay</p>
+			</div>
+			<ul class="snap-ul">
+				<li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">HOME</a></li>
+				<li ng-class="{active: $state.includes('reports')}"><a ui-sref="reports">FINANCIAL HEALTH</a></li>
+                <li><a href="">INCOME, EXPENSES, LOANS</a></li>
+                <li><a href="">DREAMS</a></li>
+				<li><a ui-sref="login">LOGOUT</a></li>
+				
+			</ul>
+		</div>
+	</snap-drawer>
+	<snap-dragger></snap-dragger>
+	<snap-content snap-opt-tap-to-close="false">
+
+		<a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen">
+			<span class="menutoggle">
+				<i ng-hide="menuOpen" class="fa fa-bars fa-2x" ></i>
+				<i ng-show="menuOpen" class="fa fa-times fa-2x" ></i>
+			</span>
+		</a>
+		
+		<div class="fr">
+		<h2>Overview <small>MoneyGit</small></h2>
+		</div>
+		<div class="jumbotron">
+			<div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+				<h1>Welcome!</h1>
+                    </div>
+                    <div class="col-md-5">
+				<button class="btn btn-default orange-circle-button" ui-sref="reports">TRACK<br />FINANCIAL HEALTH<br /><span class="orange-circle-greater-than">></span></button>
+                    </div>
+                <div>
+				<div class="row">
+        			<div class="col-md-7">
+          				<div class="card">
+            				<div class="card-image">
+              					<img src="images/europe.jpg">
+              					<span class="card-title">Your Dreams</span>
+            				</div>
+            				<div class="card-content">
+              					<p style="color: red; font-size: 250%;">$4,200</p>
+              					<p style="color: black;">Europe Trip</p>
+              					
+                              <div class="progress-wrap progress" data-progress-percent="40">
+                                  <p>&nbsp;$2750 saved</p>
+  <div class="progress-bar progress"></div>
+</div>
+                                
+            				</div>
+            				<div class="card-action">
+              					<a href="#">Details</a>
+            				</div>
+          				</div>
+                    </div>
+          			<div class="col-md-5">
+          				<div class="card">
+            <div class="card-content black-text">
+              <span>Income</span>
+              
+                <div class="progress-wrap2 progress2" data-progress-percent2="43">
+                                  <p>&nbsp;$3000 of $4000</p>
+  <div class="progress-bar2 progress2"></div>
+</div>
+                <span>Expenses</span>
+                <div class="progress-wrap3 progress3" data-progress-percent3="30">
+                                  <p>&nbsp;$1200 over</p>
+  <div class="progress-bar3 progress3"></div>
+</div>
+                <span>Loans</span>
+                <div class="progress-wrap4 progress4" data-progress-percent4="40">
+                                  <p>&nbsp;$50000 left</p>
+  <div class="progress-bar4 progress4"></div>
+</div>
+            </div>
+            <div class="card-action">
+              <a href="#">Details</a>
+            </div>
+          </div>	
+          				</div>
+        			</div>
+      			</div>
+                </div>
+				<p>
+					<a ui-sref="login" class="btn btn-primary btn-lg btn-white">Logout</a>
+				</p>
+            
+        </div>
+	</snap-content>	
+</div>
+

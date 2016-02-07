@@ -1,0 +1,45 @@
+<div>
+	<snap-drawer>
+		<div class="snap-menu">
+			<div class="sidebar-header text-center">
+				<img src="images/tonnycircle.png" alt="" class="sidebar-img img-circle">
+                <p>Tonny Lay</p>
+			</div>
+			<ul class="snap-ul">
+				<li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">HOME</a></li>
+				<li ng-class="{active: $state.includes('reports')}"><a ui-sref="reports">FINANCIAL HEALTH</a></li>
+                <li><a href="">INCOME, EXPENSES, LOANS</a></li>
+                <li><a href="">DREAMS</a></li>
+				<li><a ui-sref="login">LOGOUT</a></li>
+				
+			</ul>
+		</div>
+	</snap-drawer>
+	<snap-dragger></snap-dragger>
+	<snap-content snap-opt-tap-to-close="false">
+
+		<a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen">
+			<span class="menutoggle">
+				<i ng-hide="menuOpen" class="fa fa-bars fa-2x" ></i>
+				<i ng-show="menuOpen" class="fa fa-times fa-2x" ></i>
+			</span>
+		</a>
+		
+		<div class="fr">
+		<h2>Reports <small>Your Future Financial Health</small></h2>
+            <p><a class="btn btn-primary btn-lg btn-white" href="http://scotiahack-tradeoff-etfs.mybluemix.net">Watson Tradeoff Analytics</a></p>
+		</div>
+		<img src="images/watson.png" style="max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    right: 0;">
+		<div class="jumbotron">
+			<div class="container">
+					<a class="btn btn-primary btn-lg btn-white" ui-sref="overview">Back to Overview</a>
+			</div>
+		</div>
+	</snap-content>	
+</div>
