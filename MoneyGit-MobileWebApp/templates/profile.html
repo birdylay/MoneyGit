@@ -1,0 +1,103 @@
+<ion-view title="Profile">
+    <ion-content padding="true" class="">
+        <form style="margin-top:10px" method="post" action="http://rhyno.buildmobi.net/api/v1/widget/post/forms/postForm" id="frm116" novalidate>
+            <input type="hidden" name="sl" value="eyJpdiI6IlpBR1Nha0I3dWVkSGZMR1kxVW5hSVE9PSIsInZhbHVlIjoiT2dIQmhHNDZEc3Q1Q0k5dE80UmR4VGtBQ1h6WWZsNEsreDB4NDdkcjBkOD0iLCJtYWMiOiIyMmNiOGJhZGJmYjgzNGRiOTEwODdjMmQzNDczNTEwNGIxOGNjMzMxYmIyYTc3NjVkNmY3ZDkxYTdkMjNhYjIwIn0%3D">
+            <div class="list">
+                <textarea name="el-0[]" style="display:none">Name</textarea>
+                <input type="hidden" name="el-required[0]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text" name="el-0[]">
+                </label>
+                <textarea name="el-1[]" style="display:none">E-mail</textarea>
+                <input type="hidden" name="el-required[1]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">E-mail</span>
+                    <input type="email" name="el-1[]">
+                </label>
+                <textarea name="el-2[]" style="display:none">Cell Phone</textarea>
+                <input type="hidden" name="el-required[2]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Cell Phone</span>
+                    <input type="tel" name="el-2[]">
+                </label>
+                <textarea name="el-3[]" style="display:none">Home Phone</textarea>
+                <input type="hidden" name="el-required[3]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Home Phone</span>
+                    <input type="tel" name="el-3[]">
+                </label>
+                <textarea name="el-4[]" style="display:none">Bank</textarea>
+                <input type="hidden" name="el-required[4]" value="1">
+                <div class="list" style="margin-top:20px">
+                    <label class="item item-input">
+                        <span class="input-label"><strong>Bank</strong></span>
+                    </label>
+                    <div class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" checked name="el-4[opts][]" value="Scotiabank">
+                        </label>
+                        Scotiabank
+                    </div>
+                    <div class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" name="el-4[opts][]" value="TD">
+                        </label>
+                        TD
+                    </div>
+                    <div class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" name="el-4[opts][]" value="CIBC">
+                        </label>
+                        CIBC
+                    </div>
+                    <div class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" name="el-4[opts][]" value="Royal">
+                        </label>
+                        Royal
+                    </div>
+                    <div class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" name="el-4[opts][]" value="BMO">
+                        </label>
+                        BMO
+                    </div>
+                    <div class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" name="el-4[opts][]" value="National">
+                        </label>
+                        National
+                    </div>
+                </div>
+            </div>
+            <button class="button button-block button-positive" type="submit">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>
+<script>
+$('#frm116').on('submit', function() {
+
+	angular.element($('ion-view')).injector().get("$ionicLoading").show();
+
+	$.ajax({
+		type: 'POST',
+		url: $(this).attr('action'),
+		data: $(this).serialize(),
+		dataType: 'json',
+		success: function(data)
+		{
+			$('#frm116')[0].reset();
+			angular.element($('ion-view')).injector().get("$ionicPopup").alert({
+				title: "Profile",
+				template: data.msg,
+				okText: "OK"
+			});
+		}
+	}).always(function() {
+		angular.element($('ion-view')).injector().get("$ionicLoading").hide();
+	});;
+
+	return false;
+});
+</script>

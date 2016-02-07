@@ -1,0 +1,46 @@
+body,
+ion-nav-view,
+ion-nav-view .pane {
+ background:url(../img/index/background-phone.png) no-repeat center center !important; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important; }.card {
+	margin-top:5px;
+}
+.m-top {
+	margin-top:10px;
+}
+.text-center {
+    text-align:center;
+}
+.transparent {
+	width:100%;
+	display:list-item;
+	margin-bottom:10px;
+}
+.list {
+	width:100%;
+	display:list-item;
+}
+.transparent ol,
+.transparent ul {
+	list-style: inside;
+}
+.transparent ol li,
+.transparent ul li{
+	margin-left:5px;
+}
+.transparent ol li {
+	list-style: decimal;
+	margin-left:25px;
+}
+.icon-button:before {
+	margin-top:4px !important;
+}
+.no-padding {
+	padding:0;
+}
+/* Fix body text color popup */
+.popup-container .popup .popup-head .popup-title,
+.popup-container .popup .popup-head .popup-sub-title,
+.popup-container .popup .popup-body span {
+	color:#000000 !important;
+}
+

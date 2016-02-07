@@ -1,0 +1,66 @@
+<ion-view title="Income">
+    <ion-content padding="true" class="">
+        <form style="margin-top:10px" method="post" action="http://rhyno.buildmobi.net/api/v1/widget/post/forms/postForm" id="frm119" novalidate>
+            <input type="hidden" name="sl" value="eyJpdiI6InhsQW0rbVBTXC9DTEk3eDVSNzRwd0R3PT0iLCJ2YWx1ZSI6IldpNHJNbnNQNDhSMGdtNmhEazhraGE2em1BTEh2QXQ5ZlRQWHhoSnZzbjg9IiwibWFjIjoiZjdmMTExMzgyMjA4ZjdjMDQyNzMzNDdiZGYzODA3NjQ5NjViZGVhOTJmYWZjNzg5MTU5YTk3MzlmMjM0NTJiZCJ9">
+            <div class="list">
+                <textarea name="el-0[]" style="display:none">Work</textarea>
+                <input type="hidden" name="el-required[0]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Work</span>
+                    <input type="number" name="el-0[]">
+                </label>
+                <textarea name="el-1[]" style="display:none">Rental</textarea>
+                <input type="hidden" name="el-required[1]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Rental</span>
+                    <input type="number" name="el-1[]">
+                </label>
+                <textarea name="el-2[]" style="display:none">Investments</textarea>
+                <input type="hidden" name="el-required[2]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Investments</span>
+                    <input type="number" name="el-2[]">
+                </label>
+                <textarea name="el-3[]" style="display:none">Hacking App</textarea>
+                <input type="hidden" name="el-required[3]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Hacking App</span>
+                    <input type="number" name="el-3[]">
+                </label>
+                <textarea name="el-4[]" style="display:none">Pimping</textarea>
+                <input type="hidden" name="el-required[4]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Pimping</span>
+                    <input type="number" name="el-4[]">
+                </label>
+            </div>
+            <button class="button button-block button-positive" type="submit">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>
+<script>
+$('#frm119').on('submit', function() {
+
+	angular.element($('ion-view')).injector().get("$ionicLoading").show();
+
+	$.ajax({
+		type: 'POST',
+		url: $(this).attr('action'),
+		data: $(this).serialize(),
+		dataType: 'json',
+		success: function(data)
+		{
+			$('#frm119')[0].reset();
+			angular.element($('ion-view')).injector().get("$ionicPopup").alert({
+				title: "Income",
+				template: data.msg,
+				okText: "OK"
+			});
+		}
+	}).always(function() {
+		angular.element($('ion-view')).injector().get("$ionicLoading").hide();
+	});;
+
+	return false;
+});
+</script>

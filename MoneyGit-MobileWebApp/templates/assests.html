@@ -1,0 +1,54 @@
+<ion-view title="Assests">
+    <ion-content padding="true" class="">
+        <form style="margin-top:10px" method="post" action="http://rhyno.buildmobi.net/api/v1/widget/post/forms/postForm" id="frm120" novalidate>
+            <input type="hidden" name="sl" value="eyJpdiI6IjNRdkRrZEFqZ0JwbjlvMDh6ZG0ydlE9PSIsInZhbHVlIjoiT0lhMU1pUm56eUxuTDBEK0t6UGtYTytZMXNsXC9mOFp0RG5UXC9NblpXaUxVPSIsIm1hYyI6IjI3MDYxN2E5NTZhNzMyY2M4ZjExNGQ4Zjk1ZTI4YjcxZDA2NjFhMDFkMjA4NmJjZjdlYzQ4NzUxZTU5NGQzOTAifQ%3D%3D">
+            <div class="list">
+                <textarea name="el-0[]" style="display:none">Home</textarea>
+                <input type="hidden" name="el-required[0]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Home</span>
+                    <input type="number" name="el-0[]">
+                </label>
+                <textarea name="el-1[]" style="display:none">Land</textarea>
+                <input type="hidden" name="el-required[1]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Land</span>
+                    <input type="number" name="el-1[]">
+                </label>
+                <textarea name="el-2[]" style="display:none">Gold</textarea>
+                <input type="hidden" name="el-required[2]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Gold</span>
+                    <input type="number" name="el-2[]">
+                </label>
+            </div>
+            <button class="button button-block button-positive" type="submit">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>
+<script>
+$('#frm120').on('submit', function() {
+
+	angular.element($('ion-view')).injector().get("$ionicLoading").show();
+
+	$.ajax({
+		type: 'POST',
+		url: $(this).attr('action'),
+		data: $(this).serialize(),
+		dataType: 'json',
+		success: function(data)
+		{
+			$('#frm120')[0].reset();
+			angular.element($('ion-view')).injector().get("$ionicPopup").alert({
+				title: "Assests",
+				template: data.msg,
+				okText: "OK"
+			});
+		}
+	}).always(function() {
+		angular.element($('ion-view')).injector().get("$ionicLoading").hide();
+	});;
+
+	return false;
+});
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="ngApp" lang="en">
+    <head>
+        <title>Moneygit v3</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' * ws://localhost:35729 data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';">
+        <link rel="stylesheet" href="css/mobile.css">
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/home-screen-style.css">
+        <link rel="stylesheet" href="css/e-commerce-style.css">
+        <link rel="stylesheet" href="css/photos-style.css">
+        <link rel="stylesheet" href="css/web-page-style.css">
+        <script src="js/lib.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/e-commerce-simpleCart.min.js"></script>
+        <script src="js/e-commerce-app.js"></script>
+        <script src="js/photos-app.js"></script>
+        <script src="js/coupons-app.js"></script>
+        <script src="js/coupons-fingerprint2.js"></script>
+    </head>
+    <body ng-controller="MainCtrl" ng-class="bodyClass">
+        <ion-nav-bar class="bar-dark">
+            <ion-nav-back-button class="button-icon icon ion-arrow-left-c">
+            </ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view>
+        </ion-nav-view>
+    </body>
+</html>

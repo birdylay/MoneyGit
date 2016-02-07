@@ -1,0 +1,2 @@
+angular.module('ngApp.services', [])
+

@@ -1,0 +1,66 @@
+<ion-view title="Variable Costs">
+    <ion-content padding="true" class="">
+        <form style="margin-top:10px" method="post" action="http://rhyno.buildmobi.net/api/v1/widget/post/forms/postForm" id="frm118" novalidate>
+            <input type="hidden" name="sl" value="eyJpdiI6IndGYWliT01kT2pGV3JvWVdBc1RXNUE9PSIsInZhbHVlIjoiSFJUc0hRWkV3S1MyaStkZU9iUURuMUJEQXZrdEtLaTlZQ1FUNkZ0NkN0WT0iLCJtYWMiOiIxNGI4MWRlODZmOGUwMjBlNTA3MmZmZDA4OTljNDFlNTlhYWE3NmJiNzFlZjYyZDIyYmQxODk1NjhhNTc2NTZhIn0%3D">
+            <div class="list">
+                <textarea name="el-0[]" style="display:none">Groceries</textarea>
+                <input type="hidden" name="el-required[0]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Groceries</span>
+                    <input type="number" name="el-0[]">
+                </label>
+                <textarea name="el-1[]" style="display:none">Drugstore</textarea>
+                <input type="hidden" name="el-required[1]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Drugstore</span>
+                    <input type="number" name="el-1[]">
+                </label>
+                <textarea name="el-2[]" style="display:none">Entertainment</textarea>
+                <input type="hidden" name="el-required[2]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Entertainment</span>
+                    <input type="number" name="el-2[]">
+                </label>
+                <textarea name="el-3[]" style="display:none">Children&rsquo;s Activities</textarea>
+                <input type="hidden" name="el-required[3]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Children&rsquo;s Activities</span>
+                    <input type="number" name="el-3[]">
+                </label>
+                <textarea name="el-4[]" style="display:none">Parking</textarea>
+                <input type="hidden" name="el-required[4]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Parking</span>
+                    <input type="number" name="el-4[]">
+                </label>
+            </div>
+            <button class="button button-block button-positive" type="submit">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>
+<script>
+$('#frm118').on('submit', function() {
+
+	angular.element($('ion-view')).injector().get("$ionicLoading").show();
+
+	$.ajax({
+		type: 'POST',
+		url: $(this).attr('action'),
+		data: $(this).serialize(),
+		dataType: 'json',
+		success: function(data)
+		{
+			$('#frm118')[0].reset();
+			angular.element($('ion-view')).injector().get("$ionicPopup").alert({
+				title: "Variable Costs",
+				template: data.msg,
+				okText: "OK"
+			});
+		}
+	}).always(function() {
+		angular.element($('ion-view')).injector().get("$ionicLoading").hide();
+	});;
+
+	return false;
+});
+</script>

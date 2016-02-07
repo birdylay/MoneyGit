@@ -1,0 +1,60 @@
+<ion-view title="Fixed Expenses">
+    <ion-content padding="true" class="">
+        <form style="margin-top:10px" method="post" action="http://rhyno.buildmobi.net/api/v1/widget/post/forms/postForm" id="frm117" novalidate>
+            <input type="hidden" name="sl" value="eyJpdiI6IkJKdmNNMWdqeWFPbk1YZTFyMVJ2S3c9PSIsInZhbHVlIjoiXC9RXC9ud2RhRXdoNDMraWpqaWVUU1wvS24yRWNUd2ZURE5vTlwvNnJlaGJMSnc9IiwibWFjIjoiOThkYzc1YmQ4Nzg1YjJlNjYwNTNjYzhmOWRmZWQxOGQzZmI1ODA2NGE0NGQwYjQ5N2VhYWUzMmY5OWVlZTJkZCJ9">
+            <div class="list">
+                <textarea name="el-0[]" style="display:none">Mortgage(s) Rent</textarea>
+                <input type="hidden" name="el-required[0]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Mortgage(s) Rent</span>
+                    <input type="number" name="el-0[]">
+                </label>
+                <textarea name="el-1[]" style="display:none">Utility bills (cable, cell, electricity, water, etc.)</textarea>
+                <input type="hidden" name="el-required[1]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Utility bills (cable, cell, electricity, water, etc.)</span>
+                    <input type="number" name="el-1[]">
+                </label>
+                <textarea name="el-2[]" style="display:none">Car loan payment </textarea>
+                <input type="hidden" name="el-required[2]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Car loan payment </span>
+                    <input type="number" name="el-2[]">
+                </label>
+                <textarea name="el-3[]" style="display:none">Vehicle insurance</textarea>
+                <input type="hidden" name="el-required[3]" value="1">
+                <label class="item item-input">
+                    <span class="input-label">Vehicle insurance</span>
+                    <input type="number" name="el-3[]">
+                </label>
+            </div>
+            <button class="button button-block button-positive" type="submit">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>
+<script>
+$('#frm117').on('submit', function() {
+
+	angular.element($('ion-view')).injector().get("$ionicLoading").show();
+
+	$.ajax({
+		type: 'POST',
+		url: $(this).attr('action'),
+		data: $(this).serialize(),
+		dataType: 'json',
+		success: function(data)
+		{
+			$('#frm117')[0].reset();
+			angular.element($('ion-view')).injector().get("$ionicPopup").alert({
+				title: "Fixed Expenses",
+				template: data.msg,
+				okText: "OK"
+			});
+		}
+	}).always(function() {
+		angular.element($('ion-view')).injector().get("$ionicLoading").hide();
+	});;
+
+	return false;
+});
+</script>

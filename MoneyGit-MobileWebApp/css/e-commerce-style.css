@@ -1,0 +1,24 @@
+.simpleCart_items table {
+	width:100%;
+}
+
+.simpleCart_items .headerRow th {
+	font-weight:bold;
+	text-align:left;
+	padding:5px;
+}
+
+.simpleCart_items td {
+	padding:5px;
+}
+
+.simpleCart_totals {
+	font-size:1.2em;
+	text-align:right;
+	margin:20px 0;
+}
+
+.simpleCart_totals hr {
+	width:50%;
+	float:right;
+}

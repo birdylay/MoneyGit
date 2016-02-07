@@ -1,0 +1,147 @@
+.home-container {
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+}
+
+.home-container img {
+	max-width:100%;
+}
+
+.home-container > .row {
+     flex: 1;
+}
+
+.header {
+     flex: 1.5 !important;
+     align-items: center;
+}
+
+.icon-row {
+     align-items: center;
+}
+
+.icon-row .col .button {
+	margin-top:5px;
+	line-height: normal !important;
+	min-height: inherit;
+}
+
+.button-row .button .icon {
+	float:left;
+}
+
+.button-row .button {
+	text-align:left;
+	overflow:hidden;
+}
+
+.button-row .button .icon.icon-xs:before,
+.icon-row .icon.icon-xs {
+	font-size:2.2em;
+}
+.button-row.xs .button {
+	min-height: 46px;
+	padding-top:0px;
+}
+.button-row.xs .button-text {
+	font-size:1.0em;
+	margin:2px 0 0 15px;
+}
+.button-row.xs .button.button-block, .button-row.xs .button.button-full {
+	margin:5px 0;
+}
+
+.button-row .button .icon.icon-s:before,
+.icon-row .icon.icon-s {
+	font-size:2.8em;
+}
+.button-row.s .button {
+	min-height: 51px;
+	padding-top:3px;
+}
+.button-row.s .button-text {
+	font-size:1.2em;
+	margin:1px 0 0 15px;
+}
+.button-row.s .button.button-block, .button-row.s .button.button-full {
+	margin:8px 0;
+}
+
+.button-row .button .icon.icon-m:before,
+.icon-row .icon.icon-m {
+	font-size:3.2em;
+}
+.button-row.m .button {
+	min-height: 56px;
+	padding-top:4px;
+}
+.button-row.m .button-text {
+	font-size:1.5em;
+	margin:3px 0 0 15px;
+}
+.button-row.m .button.button-block, .button-row.m .button.button-full {
+	margin:5px 0;
+}
+
+.button-row .button .icon.icon-l:before,
+.icon-row .icon.icon-l {
+	font-size:3.6em;
+}
+.button-row.l .button {
+	min-height: 64px;
+	padding-top:9px;
+}
+.button-row.l .button-text {
+	font-size:1.8em;
+	margin:2px 0 0 15px;
+}
+.button-row.l .button.button-block, .button-row.l .button.button-full {
+	margin:8px 0;
+}
+
+.button-row .button .icon.icon-xl:before,
+.icon-row .icon.icon-xl {
+	font-size:4.2em;
+}
+.button-row.xl .button {
+	min-height: 68px;
+	padding-top:10px;
+}
+.button-row.xl .button-text {
+	font-size:2.0em;
+	margin:3px 0 0 15px;
+}
+.button-row.xl .button.button-block, .button-row.xl .button.button-full {
+	margin:8px 0;
+}
+
+.icon-row.dark {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.icon-row.dark .icon {
+	text-shadow: 1px 1px 14px rgba(0, 0, 0, 0.5);
+}
+
+.icon-row.light {
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.icon-row.light .icon {
+	text-shadow: 1px 1px 14px rgba(255, 255, 255, 0.5);
+}
+
+.col .button {
+	padding:2px 4px;
+}
+
+.col.bg-dark .button {
+	background:rgba(0, 0, 0, 0.5) !important;
+	color:#eee;
+}
+
+.col.bg-light .button {
+	background:rgba(255, 255, 255, 0.5) !important;
+	color:#222;
+}
